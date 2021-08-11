@@ -14,8 +14,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: example.tex
-      - name: Commit report
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Commit pdf
         run: |
           git config --global user.name 'Brodi Elwood'
           git config --global user.email 'brodielwood@gmail.com'
