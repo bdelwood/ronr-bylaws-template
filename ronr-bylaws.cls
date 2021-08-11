@@ -90,7 +90,3 @@
     }
     \vspace{12pt}
 }
-
-
-% Gobble Page Number
-\pagenumbering{gobble}
