@@ -14,3 +14,10 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: example.tex
+      - name: Commit report
+        uses: actions/checkout@v2
+        run: |
+          git config --global user.name 'Brodi Elwood'
+          git config --global user.email 'brodielwood@gmail.com'
+          git commit -am "Adding example.pdf"
+          git push
