@@ -79,6 +79,13 @@
   \xsection}
 
 
+% description niceties
+\setlist[description]{%
+  labelwidth=60pt,
+  leftmargin=!,             
+  font={\bfseries\scshape},
+}
+
 % Defines WHEREAS
 \newcommand{\whereas}[1]{\noindent\textbf{WHEREAS:} #1;\vspace{12pt}}
 
