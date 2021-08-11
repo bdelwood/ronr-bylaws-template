@@ -52,17 +52,17 @@
 %%
 % article title class
 \titleclass\article{straight}[\part]
-\titleformat{\article}[hang]{\bfseries\MakeUppercase}{Article \thearticle}{1.5em}{}
+\titleformat{\article}[hang]{\bfseries\MakeUppercase}{\thearticle}{1.5em}{}
 \titlespacing*{\article}{0mm}{*4}{*2.3}[0mm]
 \newcounter{article}
-\renewcommand\thearticle{\Roman{article}}
+\renewcommand\thearticle{Article \Roman{article}}
 
 \makeatletter
 \@addtoreset{section}{article}
 \makeatother
-\titleformat{\section}[block]{\normalfont\scshape}{\S \thesection}{1.5em}{}
+\titleformat{\section}[block]{\normalfont\scshape}{\thesection}{1.5em}{}
 \titlespacing*{\section}{12pt}{1ex}{1em}
-\renewcommand{\thesection}{\arabic{section}} 
+\renewcommand{\thesection}{\S \arabic{section}} 
 
 \makeatletter
 \let\xarticle\article
