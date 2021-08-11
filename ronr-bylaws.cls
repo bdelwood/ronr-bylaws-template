@@ -4,8 +4,7 @@
 \ProvidesClass{ronr-bylaws}
 
 % Base Class
-\LoadClass[12pt, onecolumn]{article}
-\DeclareOption{twocolumn}{\OptionNotUsed}
+\LoadClass{report}[12pt]
 
 \ProcessOptions\relax
 
@@ -18,7 +17,6 @@
                 bottom=1in]{geometry}
 \RequirePackage{mathptmx}
 \RequirePackage{setspace}
-\RequirePackage{titlesec}
 \onehalfspacing
 
 \RequirePackage{enumitem}
@@ -26,6 +24,8 @@
 \RequirePackage[normalem]{ulem}
 \RequirePackage{xcolor}
 
+\RequirePackage{titlesec}
+\RequirePackage{titletoc}
 \RequirePackage{changepage}
 \RequirePackage{parskip}
 
@@ -34,7 +34,7 @@
 % alias longname
 \def\longname{\@partyname}
 
-%Creates the correct heading for all bills and title
+% Creates the correct title
 \renewcommand{\maketitle}{
     \begin{center}
         
@@ -55,17 +55,27 @@
 % article title class
 \titleclass\article{straight}[\part]
 \titleformat{\article}[hang]{\bfseries\MakeUppercase}{\thearticle}{1.5em}{}
+% cf https://tex.stackexchange.com/a/414239
+\titlecontents{article}[0pt]{\normalfont\normalsize}{\thecontentslabel \quad}{}{\enspace\titlerule\contentspage}
 \titlespacing*{\article}{0mm}{*4}{*2.3}[0mm]
 \newcounter{article}
+% \thearticle referenced by \ref 
+% cf https://tex.stackexchange.com/a/242264
 \renewcommand\thearticle{Article \Roman{article}}
 
 \makeatletter
 \@addtoreset{section}{article}
 \makeatother
+
+% section title class
 \titleformat{\section}[block]{\normalfont\scshape}{\thesection}{1.5em}{}
 \titlespacing*{\section}{12pt}{1ex}{1em}
+% \thesection referenced by \ref 
+% cf https://tex.stackexchange.com/a/242264
 \renewcommand{\thesection}{\S \arabic{section}} 
 
+%% cf https://tex.stackexchange.com/a/357861
+% indentation for articles
 \makeatletter
 \let\xarticle\article
 \renewcommand\article{\par
@@ -73,6 +83,8 @@
   \leftskip\leftmargin
   \@totalleftmargin\leftmargin\linewidth\textwidth
   \xarticle}
+  
+% indentation for sections
 \let\xsection\section
 \renewcommand\section{\par
   \leftmargin12\p@
@@ -82,6 +94,8 @@
 
 
 % description niceties
+% cf https://tex.stackexchange.com/a/136187
+% cf https://tex.stackexchange.com/a/137216
 \setlist[description]{%
   labelwidth=60pt,
   leftmargin=!,             
