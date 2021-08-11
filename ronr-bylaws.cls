@@ -31,6 +31,8 @@
 
 %% Title formatting
 \def\partyname#1{\def\@partyname{#1}}
+% alias longname
+\def\longname{\@partyname}
 
 %Creates the correct heading for all bills and title
 \renewcommand{\maketitle}{
