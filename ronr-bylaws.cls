@@ -31,6 +31,7 @@
 
 %% Title formatting
 \def\partyname#1{\def\@partyname{#1}}
+\def\location#1{\def\@location{#1}}
 % alias longname
 \def\longname{\@partyname}
 
@@ -49,6 +50,32 @@
         
         \vspace{12pt}
     \end{center}
+}
+
+% Creates title page
+\newcommand{\maketitlepage}{
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+
+       \Large{\textbf{\MakeUppercase{\@partyname}}}
+
+       \vspace{0.5cm}
+       Bylaws
+        
+            
+       \vspace{1.5cm}
+
+       \vfill
+            
+       \vspace{0.8cm}
+     
+    
+       As adopted on \@date \\   
+       \@location 
+            
+   \end{center}
+\end{titlepage}
 }
 
 %%
